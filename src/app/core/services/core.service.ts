@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class CoreService {
 
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) { }
 
-  login(data:FormGroup):Observable<any>{
-    return this._HttpClient.post('Users/Login',data)
+  login(data: FormGroup): Observable<any> {
+    return this._HttpClient.post('Users/Login', data)
   }
 
 
-
+  // ahmed
 
 }
