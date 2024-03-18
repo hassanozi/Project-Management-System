@@ -2,35 +2,40 @@
     <div class="container d-flex justify-content-center align-items-center  h-100">
         <div class="row ">
             <div class="text-center">
-                <img src="../../../../assets/images/logo.svg" alt=""></div>
-            <div class="col-md-12">
-                <div class="auth-card ">
-                    <span class=" text-white ">Welcome to PMS</span>
-                    <h3 >Login</h3>
-                    <div >
-                        <mat-form-field appearance="fill" class="w-100">
-                            <mat-label>Email</mat-label>
-                            <input matInput placeholder="Enter Your Email">
-                            <mat-icon matSuffix>email</mat-icon>
-                          </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field  class="w-100">
-                            <mat-label>Enter your password</mat-label>
-                            <input matInput [type]="hide ? 'password' : 'text'">
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                            </button>
-                          </mat-form-field>
-                    </div>
-                    <div class="d-flex justify-content-between my-3">
-                        <a class=" text-decoration-none text-white myPointer">Register Now ?</a>
-                        <a class=" text-decoration-none text-white myPointer">Forgot Password ?</a>
-                    </div>
-                    <button class="main w-100 text-white">Login</button>
-                </div>
-    
+                <img src="../../../../assets/images/logo.svg" alt="">
             </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+                <div class="col-md-12">
+                    <div class="auth-card ">
+                        <span class=" text-white ">Welcome to PMS</span>
+                        <h3>Login</h3>
+                        <div>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Email</mat-label>
+                                <input formControlName="email" matInput placeholder="Enter Your Email">
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field class="w-100">
+                                <mat-label>Enter your password</mat-label>
+                                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <div class="d-flex justify-content-between my-3">
+                            <a class=" text-decoration-none text-white myPointer">Register Now ?</a>
+                            <a class=" text-decoration-none text-white myPointer">Forgot Password ?</a>
+                        </div>
+                        <button type="submit" class="main w-100 text-white">Login</button>
+                    </div>
+
+                </div>
+            </form>
         </div>
     </div>
 
