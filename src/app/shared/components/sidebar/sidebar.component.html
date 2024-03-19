@@ -1,0 +1,20 @@
+<section class="sticky">
+  <div class="py-5 px-2 text-center">
+    <img src="../../../assets/images/logo-icon.png" class="icon_W" alt="">
+  </div>
+
+  <div class="mt-5">
+    <ul>
+
+      <ng-container *ngFor="let item of Menu">
+        <li *ngIf="item.isActive">
+          <a routerLinkActive="bg-main-transparent">
+            <!-- <a [routerLink]="item.link" routerLinkActive="bg-main-transparent"> -->
+            <span><i [class]="item.icone"></i></span>
+            <span class=" text-capitalize">{{item.text}}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</section>
