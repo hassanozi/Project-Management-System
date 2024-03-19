@@ -18,7 +18,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-
   ],
   providers: [
     {
