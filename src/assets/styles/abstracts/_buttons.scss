@@ -9,11 +9,19 @@ button{
     transition: all .5s;
     &.main{
         background-color: $bg-main;
-        
+
         &:hover{
             opacity: 0.6;
-            
-            
+
+
         }
     }
+
+    &:disabled {
+      background-color: rgba($bg-main, 0.5);
+      color: rgba(0,0, 0) ;
+      cursor: not-allowed;
+
+    }
+
 }

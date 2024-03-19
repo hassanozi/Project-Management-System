@@ -14,7 +14,4 @@ export class CoreService {
     return this._HttpClient.post('Users/Login', data)
   }
 
-
-  // ahmed
-
 }

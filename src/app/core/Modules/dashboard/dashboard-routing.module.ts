@@ -6,7 +6,6 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'manager', loadChildren: () => import('../manager/manager.module').then(m => m.ManagerModule) },
   { path: 'employee', loadChildren: () => import('../employee/employee.module').then(m => m.EmployeeModule) },
-  
 ];
 
 @NgModule({

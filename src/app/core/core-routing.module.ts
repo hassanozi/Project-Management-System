@@ -4,8 +4,8 @@ import { CoreComponent } from './core.component';
 import { LoginComponent } from './Components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent }
-
+  { path: '', component: LoginComponent },
+  { path: 'dashboard', loadChildren: () => import('../core/Modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
 ];
 
 @NgModule({
