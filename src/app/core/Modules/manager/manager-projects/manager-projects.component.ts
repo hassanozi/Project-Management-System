@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-manager-projects',
@@ -13,7 +14,7 @@ export class ManagerProjectsComponent implements OnInit{
   tableResponse:any;
   tableData:any[]=[];
 
-  constructor(private _ProjectService:ProjectService,private dialog:MatDialog){}
+  constructor(private _ProjectService:ProjectService,private dialog:MatDialog, private _ToastrService:ToastrService){}
   
   ngOnInit(): void {
     this.getAllProjects()
@@ -27,6 +28,7 @@ export class ManagerProjectsComponent implements OnInit{
 
       },complete:()=> {
           this.getAllProjects();
+          this._ToastrService.info('Deleted Successfuly')
       },
     })
   }
