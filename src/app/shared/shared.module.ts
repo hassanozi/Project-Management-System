@@ -10,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    MatDialogModule
 
   ],
   exports: [
@@ -33,7 +35,8 @@ import { RouterLink } from '@angular/router';
     SidebarComponent,
     NavbarComponent,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    MatDialogModule
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

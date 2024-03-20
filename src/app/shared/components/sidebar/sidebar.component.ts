@@ -38,7 +38,7 @@ export class SidebarComponent {
     },
     {
       text: 'Users',
-      link: '/dashboard/admin/users',
+      link: '/core/dashboard/manager/users',
       icone: 'fa-solid fa-users',
       isActive: this.isAdmin(),
     },
