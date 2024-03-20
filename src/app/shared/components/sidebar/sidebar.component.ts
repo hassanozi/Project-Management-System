@@ -50,7 +50,7 @@ export class SidebarComponent {
     },
     {
       text: 'Tasks',
-      link: '/dashboard/admin/category',
+      link: '/core/dashboard/manager/tasks',
       icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
     },
