@@ -44,7 +44,7 @@ export class SidebarComponent {
     },
     {
       text: 'Projects',
-      link: '/dashboard/admin/recipes',
+      link: '/core/dashboard/manager/projects',
       icone: 'fa-solid fa-bowl-food',
       isActive: this.isAdmin(),
     },
