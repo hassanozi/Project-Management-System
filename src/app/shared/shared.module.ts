@@ -8,7 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import {MatMenuModule} from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -18,16 +19,21 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatFormFieldModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatMenuModule,
+    RouterLink
 
   ],
   exports: [
+    CommonModule,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     ReactiveFormsModule,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    MatMenuModule,
+    RouterLink
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

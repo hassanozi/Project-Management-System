@@ -1,0 +1,38 @@
+<section>
+    <div class="title-page shadow px-5">
+        <div>
+            <a class="text-decoration-none text-dark" routerLink="/core/dashboard/manager/projects"><span><span><i class="fa-solid fa-angle-left"></i></span>View All Projects</span></a>
+
+            <h2>
+                Add New Project
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="card-form w-75 mx-auto my-3 shadow-sm">
+
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm)">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" formControlName="title" class="form-control rounded-4" id="exampleFormControlInput1" placeholder="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Description</label>
+                <textarea type="text" formControlName="description" class="form-control rounded-4" id="exampleFormControlInput2" placeholder="Description"></textarea>
+            </div>
+            <hr class="mt-5">
+            <div class="d-flex justify-content-between">
+                <button class="main-outline w-25" routerLink="../" type="button">Cancel</button>
+                <button class="main w-25">Save</button>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+
+
+</section>

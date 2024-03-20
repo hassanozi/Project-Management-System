@@ -38,5 +38,52 @@ $Project-Management-System-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.title-page{
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // text-align: 1rem 0px;
+  color: #0E382F;
+  padding: 20px 10px;
+  button{
+      span{
+          margin: 0px 5px;
+      }
+      width: 202px;
+      height: 40px;
+      background-color: #EF9B28;
+      border-radius: 32px;
+      color: #fff;
+      border: none;
+      margin: 20px 10px;
+  }
+}
+
+.table-container{
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 1rem 0px;
+
+  .table{
+      thead{
+          background-color: rgba(49, 89, 81,0.9);
+          height: 38px !important;
+          
+          color: #fff;
+          width: 100% !important;
+
+          th{
+              font-size: 20px;
+              padding: 5px;
+              text-transform: capitalize;
+              border-left: 2px solid #315951;
+              border-right: 2px solid #315951;
+          }
+      }
+      
+  }
+}
+
 
 
