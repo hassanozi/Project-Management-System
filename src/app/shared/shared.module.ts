@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatMenuModule} from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
 
   ],
   exports: [
@@ -33,7 +34,9 @@ import { RouterLink } from '@angular/router';
     SidebarComponent,
     NavbarComponent,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
+
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

@@ -12,39 +12,32 @@ div {
 }
 
   ul {
-    padding: 0px;
+    // padding: 0px;
     li {
       list-style: none;
       a {
-          padding: 20px;
+          padding: 15px;
+          width: 80%;
           color:rgba(255, 255, 255,.6);
           text-decoration: none;
           display: block;
+          border-radius: 15px;
           span {
             margin: 0px 5px;
             i {
-              color: #fff !important;
+              color: #fff ;
             }
           }
       }
     }
   }
   .bg-main-transparent {
-    background-color: rgba(239, 155, 40, .3);
-    // position: relative;
-    color: #fff !important;
+    background-color: rgba(239, 155, 40, .2);
+    color: #ef9b28 !important;
+    i {
+      color: #ef9b28 !important;
+    }
   }
-
-  // .bg-main-transparent::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   border-left: 10px solid rgba(0, 146, 78, 0.652);
-  //   border-radius: 15px;
-  // }
 
 }
 

@@ -10,24 +10,24 @@ import { Router } from '@angular/router';
 })
 export class AddEditProjectComponent {
 
-  constructor(private _ProjectService:ProjectService, private _Router:Router){}
+  constructor(private _ProjectService: ProjectService, private _Router: Router) { }
 
   projectForm = new (FormGroup)({
-    title :new FormControl(null),
-    description :new FormControl(null)
+    title: new FormControl(null),
+    description: new FormControl(null)
   })
 
 
-  onSubmit(data:FormGroup){
+  onSubmit(data: FormGroup) {
     console.log(data.value);
     this._ProjectService.onAddProject(data.value).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        
-      },error:()=>{
 
-      },complete:()=>{
-        this._Router.navigate(['/dashboard/manager/projects'])
+      }, error: () => {
+
+      }, complete: () => {
+        this._Router.navigate(['/core/dashboard/manager/projects'])
       }
     })
   }
