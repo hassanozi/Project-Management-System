@@ -5,6 +5,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
+import { RegisterComponent } from './Components/register/register.component';
 
 
 
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     CoreComponent,
     LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [

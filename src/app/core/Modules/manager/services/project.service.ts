@@ -17,5 +17,8 @@ export class ProjectService {
   onAddProject(data : FormGroup):Observable<any>{
     return this._HttpClient.post('Project',data)
   }
+  onDeleteProject(id:number):Observable<any>{
+    return this._HttpClient.delete(`Project/${id}`)
+  }
 
 }

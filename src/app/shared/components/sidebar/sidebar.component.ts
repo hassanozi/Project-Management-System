@@ -37,7 +37,7 @@ export class SidebarComponent {
     },
     {
       text: 'Users',
-      link: '/dashboard/admin/users',
+      link: '/core/dashboard/manager/users',
       icone: 'fa-solid fa-users',
       isActive: this.isAdmin(),
     },
@@ -50,8 +50,9 @@ export class SidebarComponent {
     },
     {
       text: 'Tasks',
-      link: '/dashboard/admin/category',
-      icone: 'fa-solid fa-list-ul',
+
+      link: '/core/dashboard/manager/tasks',
+      icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
     },
     {
