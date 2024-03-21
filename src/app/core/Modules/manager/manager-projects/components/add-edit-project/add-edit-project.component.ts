@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-project',
   templateUrl: './add-edit-project.component.html',
   styleUrls: ['./add-edit-project.component.scss']
 })
-export class AddEditProjectComponent implements OnInit{
+export class AddEditProjectComponent implements OnInit {
 
 
-  constructor(private _ProjectService: ProjectService, private _Router: Router) { }
+  // constructor(private _ProjectService: ProjectService, private _Router: Router) { }
 
   viewUserId: number = 0;
 
-  constructor(private _ProjectService:ProjectService, private _Router:Router,private _ActivatedRoute: ActivatedRoute,){
+  constructor(private _ProjectService: ProjectService, private _Router: Router, private _ActivatedRoute: ActivatedRoute,) {
     this.viewUserId = _ActivatedRoute.snapshot.params['id'];
   }
-  
+
   ngOnInit(): void {
     if (this.viewUserId) {
 
