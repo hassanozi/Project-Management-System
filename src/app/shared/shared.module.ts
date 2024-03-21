@@ -10,6 +10,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    MatDialogModule,
+    ToastrModule
 
   ],
   exports: [
@@ -33,7 +37,9 @@ import { RouterLink } from '@angular/router';
     SidebarComponent,
     NavbarComponent,
     MatMenuModule,
-    RouterLink
+    RouterLink,
+    MatDialogModule,
+    ToastrModule
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

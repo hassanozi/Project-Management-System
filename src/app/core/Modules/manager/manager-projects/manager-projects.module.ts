@@ -5,12 +5,14 @@ import { ManagerProjectsRoutingModule } from './manager-projects-routing.module'
 import { ManagerProjectsComponent } from './manager-projects.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddEditProjectComponent } from './components/add-edit-project/add-edit-project.component';
+import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
 
 
 @NgModule({
   declarations: [
     ManagerProjectsComponent,
-    AddEditProjectComponent
+    AddEditProjectComponent,
+    DeleteProjectComponent
   ],
   imports: [
     CommonModule,
