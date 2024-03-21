@@ -8,11 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatMenuModule} from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
+
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   imports: [
@@ -24,10 +27,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule,
     MatMenuModule,
     RouterLink,
+    RouterLinkActive
     MatDialogModule,
     ToastrModule,
     MatPaginatorModule,
     FormsModule
+
 
   ],
   exports: [
@@ -41,6 +46,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NavbarComponent,
     MatMenuModule,
     RouterLink,
+    RouterLinkActive
     MatDialogModule,
     ToastrModule,
     MatPaginatorModule,

@@ -10,6 +10,9 @@ import { Router , ActivatedRoute} from '@angular/router';
 })
 export class AddEditProjectComponent implements OnInit{
 
+
+  constructor(private _ProjectService: ProjectService, private _Router: Router) { }
+
   viewUserId: number = 0;
 
   constructor(private _ProjectService:ProjectService, private _Router:Router,private _ActivatedRoute: ActivatedRoute,){
@@ -22,22 +25,23 @@ export class AddEditProjectComponent implements OnInit{
     }
   }
 
+
   projectForm = new (FormGroup)({
-    title :new FormControl(null),
-    description :new FormControl(null)
+    title: new FormControl(null),
+    description: new FormControl(null)
   })
 
 
-  onSubmit(data:FormGroup){
+  onSubmit(data: FormGroup) {
     console.log(data.value);
     this._ProjectService.onAddProject(data.value).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        
-      },error:()=>{
 
-      },complete:()=>{
-        this._Router.navigate(['/dashboard/manager/projects'])
+      }, error: () => {
+
+      }, complete: () => {
+        this._Router.navigate(['/core/dashboard/manager/projects'])
       }
     })
   }

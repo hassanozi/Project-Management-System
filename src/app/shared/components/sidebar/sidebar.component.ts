@@ -17,14 +17,13 @@ interface Menu {
 })
 export class SidebarComponent {
 
+  notFoundRecipes: string = '../../../../assets/images/avatar.png';
+
 
   constructor(private _CoreService: CoreService) { }
-
-
   isAdmin(): boolean {
     return this._CoreService.role == 'Manager' ? true : false;
   }
-
   isUser(): boolean {
     return this._CoreService.role == 'Employee' ? true : false;
   }
@@ -32,7 +31,7 @@ export class SidebarComponent {
   Menu: Menu[] = [
     {
       text: 'Home',
-      link: '/dashboard/home',
+      link: '/core/dashboard/home',
       icone: 'fa-solid fa-house',
       isActive: this.isAdmin() || this.isUser(),
     },
@@ -45,11 +44,13 @@ export class SidebarComponent {
     {
       text: 'Projects',
       link: '/core/dashboard/manager/projects',
-      icone: 'fa-solid fa-bowl-food',
+      // <i class="fa-solid fa-users-rectangle"></i>
+      icone: 'fa-solid fa-users-rectangle',
       isActive: this.isAdmin(),
     },
     {
       text: 'Tasks',
+
       link: '/core/dashboard/manager/tasks',
       icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
