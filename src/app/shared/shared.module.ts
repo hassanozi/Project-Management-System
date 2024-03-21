@@ -5,13 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -24,7 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
     MatMenuModule,
     RouterLink,
     MatDialogModule,
-    ToastrModule
+    ToastrModule,
+    MatPaginatorModule,
+    FormsModule
 
   ],
   exports: [
@@ -39,7 +42,9 @@ import { ToastrModule } from 'ngx-toastr';
     MatMenuModule,
     RouterLink,
     MatDialogModule,
-    ToastrModule
+    ToastrModule,
+    MatPaginatorModule,
+    FormsModule
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]
