@@ -8,15 +8,16 @@
     </div>
     <div class="table-container mt-5 mx-5">
         <div class="w-25 px-3">
-            <input type="text" placeholder="Search By Title" class="form-control">
+            <input [(ngModel)]="searchkey" type="text" placeholder="Search By Title" class="form-control">
         </div>
         <table class="table table-striped my-3">
             <thead>
-                <th>Manager NAme</th>
+                <th>Manager Name</th>
                 <th>title</th>
                 <th>description</th>
                 <th>Created at</th>
                 <th>Modification date</th>
+                <th>Actions</th>
                 <th></th>
             </thead>
             <tbody>
@@ -30,24 +31,30 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #menu="matMenu">
+                        <button mat-menu-item [routerLink]="['/core/dashboard/manager/projects/edit',item.id]">
+                            <mat-icon>edit_square</mat-icon>
+                            <span>View</span>
+                        </button>
                         <button mat-menu-item (click)="openDeleteProjectDialog(item)" >
                           <mat-icon >delete</mat-icon>
                           <span>Delete</span>
                         </button>
-                        <button mat-menu-item disabled>
-                          <mat-icon>voicemail</mat-icon>
-                          <span>Check voice mail</span>
-                        </button>
-                        <button mat-menu-item>
-                          <mat-icon>notifications_off</mat-icon>
-                          <span>Disable alerts</span>
-                        </button>
+                        
                       </mat-menu>
                       </td>
                 </tr>
                 
             </tbody>
         </table>
+        <mat-paginator
+              [length]="tableResponse?.totalNumberOfRecords"
+              [pageSize]="tableResponse?.pageSize"
+              [pageIndex]="tableResponse?.phoneNumber"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="handlePageEvent($event)"
+              aria-label="Select page">
+</mat-paginator>
+
     </div>
 
 </section>
