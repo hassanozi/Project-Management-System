@@ -1,6 +1,6 @@
-<section class=" d-flex justify-content-between align-items-center">
+<section class="nav_shadow d-flex justify-content-between align-items-center px-1">
   <div>
-    <img src="../../../../assets/images/logo_2.svg" alt="">
+    <img src="../../../../assets/images/logo_2.svg" class="logo_w" alt="">
   </div>
 
   <div class=" d-flex gap-2">
@@ -15,9 +15,6 @@
         <p class="fw-light">{{email}}</p>
       </div>
 
-      <!-- <button mat-icon-button [-matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-      </button> -->
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon color="primary">expand_more</mat-icon>
       </button>
@@ -30,28 +27,14 @@
           <mat-icon color="primary">lock_reset</mat-icon>
           <span>Change Password</span>
         </button>
-        <button mat-menu-item>
-          <!-- (click)="myLogout()" -->
+        <button mat-menu-item (click)="myLogout()">
           <mat-icon color="primary">logout</mat-icon>
           <span>LogOut</span>
         </button>
       </mat-menu>
 
 
-      <!-- <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
-        </button>
-      </mat-menu> -->
+
 
     </div>
   </div>

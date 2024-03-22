@@ -29,4 +29,12 @@ button{
             opacity: 0.7;
         }
     }
+
+      &:disabled {
+        background-color: rgba(239, 155, 40, 0.5);
+        color: rgba(0,0, 0) ;
+        cursor: not-allowed;
+
+      }
+
 }

@@ -10,10 +10,10 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './manager-projects.component.html',
   styleUrls: ['./manager-projects.component.scss']
 })
-export class ManagerProjectsComponent implements OnInit{
- 
-  tableResponse:any;
-  tableData:any[]=[];
+export class ManagerProjectsComponent implements OnInit {
+
+  tableResponse: any;
+  tableData: any[] = [];
 
   length = 50;
   pageSize = 10;
@@ -23,61 +23,59 @@ export class ManagerProjectsComponent implements OnInit{
 
   searchkey: string = '';
 
-  constructor(private _ProjectService:ProjectService,private dialog:MatDialog, private _ToastrService:ToastrService){}
-  
+  constructor(private _ProjectService: ProjectService, private dialog: MatDialog, private _ToastrService: ToastrService) { }
+
   ngOnInit(): void {
     this.getAllProjects()
   }
 
   handlePageEvent(e: PageEvent) {
     console.log(e);
-    
+
     this.pageEvent = e;
     this.length = e.length;
     this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex +1;
+    this.pageIndex = e.pageIndex + 1;
     this.getAllProjects();
   }
 
 
-  deleteProject(projectId:any){
+  deleteProject(projectId: any) {
     this._ProjectService.onDeleteProject(projectId).subscribe({
-      next:(res) => {
+      next: (res) => {
         console.log(res);
-      },error:()=>{
+      }, error: () => {
 
-      },complete:()=> {
-          this.getAllProjects();
-          this._ToastrService.info('Deleted Successfuly')
+      }, complete: () => {
+        this.getAllProjects();
+        this._ToastrService.info('Deleted Successfuly')
       },
     })
   }
-  openDeleteProjectDialog(projectData:any){
+  openDeleteProjectDialog(projectData: any) {
     console.log(projectData)
     const dialogRef = this.dialog.open(DeleteProjectComponent, {
-      data:projectData
+      data: projectData
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      if(result){
+      if (result) {
         this.deleteProject(result);
-        
+
       }
     });
   }
 
-  getAllProjects(){
-
+  getAllProjects() {
     let paramData = {
-      pageSize : this.pageSize,
-      pageNumber : this.pageIndex,
-      title : this.searchkey
+      pageSize: this.pageSize,
+      pageNumber: this.pageIndex,
+      title: this.searchkey
     }
-
     this._ProjectService.getAllProjects(paramData).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
         this.tableResponse = res;
         this.tableData = res.data;
