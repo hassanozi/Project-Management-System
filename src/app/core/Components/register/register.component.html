@@ -110,14 +110,16 @@
                                         <mat-form-field class="w-100">
                                             <mat-label>Password</mat-label>
                                             <input formControlName="password" matInput
-                                                [type]="hide ? 'password' : 'text'" placeholder="Enter Your Password">
-                                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
-                                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                [type]="hidePass ? 'password' : 'text'"
+                                                placeholder="Enter Your Password">
+                                            <button type="button" mat-icon-button matSuffix
+                                                (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'"
+                                                [attr.aria-pressed]="hidePass">
+                                                <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
                                             </button>
                                         </mat-form-field>
                                         <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
-                                            class="text-red m-0 mx-auto p-0 text-start block alert alert-light text-center w-50 text-danger mb-4"
+                                            class="text-red m-0 text-start block alert alert-light text-center w-100 text-danger"
                                             role="alert">
                                             <span class="text-red p-0 block"
                                                 *ngIf="registerForm.get('password')?.getError('required')">password is
@@ -149,24 +151,29 @@
                                         <mat-form-field class="w-100">
                                             <mat-label>Confirm Password</mat-label>
                                             <input formControlName="confirmPassword" matInput
-                                                [type]="hide ? 'password' : 'text'" placeholder="Confirm New Password">
-                                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
-                                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                [type]="hideConfirmPass ? 'password' : 'text'"
+                                                placeholder="Confirm New Password">
+                                            <button type="button" mat-icon-button matSuffix
+                                                (click)="hideConfirmPass = !hideConfirmPass"
+                                                [attr.aria-label]="'Hide password'"
+                                                [attr.aria-pressed]="hideConfirmPass">
+                                                <mat-icon>{{hideConfirmPass ? 'visibility_off' :
+                                                    'visibility'}}</mat-icon>
                                             </button>
                                         </mat-form-field>
-                                        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
+                                        <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched"
                                             class="text-red m-0 mx-auto p-0 text-start block alert alert-light text-center w-50 text-danger mb-4"
                                             role="alert">
                                             <span class="text-red p-0 block"
-                                                *ngIf="registerForm.get('password')?.getError('required')">password is
+                                                *ngIf="registerForm.get('confirmPassword')?.getError('required')">password
+                                                is
                                                 Required</span><br>
                                             <span class="text-red p-0 block"
-                                                *ngIf="registerForm.get('password')?.getError('minlength')">Min
+                                                *ngIf="registerForm.get('confirmPassword')?.getError('minlength')">Min
                                                 length
                                                 8</span><br>
                                             <span class="text-red p-0 block"
-                                                *ngIf="registerForm.get('password')?.getError('pattern')">must
+                                                *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">must
                                                 have at
                                                 least
                                                 1
@@ -188,7 +195,8 @@
                                         Now ?</a>
                                 </div>
                                 <div class="col-md-6 text-end mb-2 ">
-                                    <a class=" text-decoration-none text-white myPointer ">Verify Account?</a>
+                                    <a class=" text-decoration-none text-white myPointer " (click)="openDialog()">Verify
+                                        Account?</a>
                                 </div>
                             </div>
                             <div class="col-md-12 text-center ">

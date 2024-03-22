@@ -43,4 +43,8 @@ export class CoreService {
     return this._HttpClient.post('Users/Register', data)
   }
 
+  verify(data: FormGroup): Observable<any> {
+    return this._HttpClient.put('Users/verify', data)
+  }
+
 }

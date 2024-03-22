@@ -1,27 +1,23 @@
 @import "./colors";
 
-button{
-    border: none;
-    border-radius: 96px;
-    padding: .7rem 0px;
-    text-align: center;
-    font-size: 20px;
-    transition: all .5s;
-    &.main{
-        background-color: $bg-main;
+button {
+  border: none;
+  border-radius: 96px;
+  padding: 0.7rem 0px;
+  text-align: center;
+  font-size: 20px;
+  transition: all 0.5s;
+  &.main {
+    background-color: $bg-main;
 
-        &:hover{
-            opacity: 0.6;
-
-
-        }
+    &:hover {
+      opacity: 0.6;
     }
+  }
 
-    &:disabled {
-      background-color: rgba($bg-main, 0.5);
-      color: rgba(0,0, 0) ;
-      cursor: not-allowed;
-
-    }
-
+  &:disabled {
+    background-color: rgba($bg-main, 0.5);
+    color: rgba(0, 0, 0);
+    cursor: not-allowed;
+  }
 }

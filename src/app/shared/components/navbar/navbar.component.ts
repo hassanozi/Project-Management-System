@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from '../../../core/Modules/dashboard/service/current-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,7 @@ export class NavbarComponent implements OnInit {
   notFoundRecipes: string = '../../../../assets/images/avatar.png';
   message: string = '';
 
-  constructor(private _CurrentUserService: CurrentUserService) { }
+  constructor(private _Router: Router, private _CurrentUserService: CurrentUserService) { }
 
   ngOnInit(): void {
     this.getUserInfo();
@@ -44,5 +45,10 @@ export class NavbarComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+  onLogOut() {
+    localStorage.clear()
+    this._Router.navigate(["/core/login"])
   }
 }
