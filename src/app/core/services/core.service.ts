@@ -39,7 +39,7 @@ export class CoreService {
     return this._HttpClient.post('Users/Login', data)
   }
 
-  register(data: FormGroup): Observable<any> {
+  register(data: FormData): Observable<any> {
     return this._HttpClient.post('Users/Register', data)
   }
 

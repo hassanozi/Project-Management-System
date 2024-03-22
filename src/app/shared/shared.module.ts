@@ -15,6 +15,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     ToastrModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule,
 
 
   ],
@@ -50,7 +52,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     ToastrModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule,
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]
