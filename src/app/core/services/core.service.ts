@@ -48,17 +48,9 @@ export class CoreService {
   verify(data: FormGroup): Observable<any> {
     return this._HttpClient.put('Users/verify', data)
   }
+
   onLogOut() {
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('userRole');
-    localStorage.removeItem('userName');
-    this._Router.navigate(['/core/login'])
-  }
-
-
-  onChangePassword(data: any): Observable<any> {
-    return this._HttpClient.put('Users/ChangePassword', data);
-
+    localStorage.clear()
   }
 
 }
