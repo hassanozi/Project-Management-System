@@ -47,7 +47,7 @@ export class CoreService {
 
   verify(data: FormGroup): Observable<any> {
     return this._HttpClient.put('Users/verify', data)
-
+  }
   onLogOut() {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userRole');
