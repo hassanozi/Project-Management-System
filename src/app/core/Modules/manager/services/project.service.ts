@@ -8,17 +8,22 @@ import { Observable } from 'rxjs';
 })
 export class ProjectService {
 
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) { }
 
-  getAllProjects(param:any):Observable<any>{
-    return this._HttpClient.get('Project',{params:param})
+  getAllProjects(param: any): Observable<any> {
+    return this._HttpClient.get('Project', { params: param })
   }
 
-  onAddProject(data : FormGroup):Observable<any>{
-    return this._HttpClient.post('Project',data)
+  onAddProject(data: FormGroup): Observable<any> {
+    return this._HttpClient.post('Project', data)
   }
-  onDeleteProject(id:number):Observable<any>{
+
+  onDeleteProject(id: number): Observable<any> {
     return this._HttpClient.delete(`Project/${id}`)
+  }
+
+  getProjectById(id: number): Observable<any> {
+    return this._HttpClient.get(`Project/${id}`)
   }
 
 }

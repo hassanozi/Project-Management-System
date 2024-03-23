@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IProjectById } from '../../../models/projects';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-edit-project',
@@ -12,23 +14,26 @@ export class AddEditProjectComponent implements OnInit {
 
 
   // constructor(private _ProjectService: ProjectService, private _Router: Router) { }
-
+  ProjectById: IProjectById | any;
   viewUserId: number = 0;
+  urlPath: any;
 
-  constructor(private _ProjectService: ProjectService, private _Router: Router, private _ActivatedRoute: ActivatedRoute,) {
+  constructor(private _ProjectService: ProjectService, private _Router: Router, private _ActivatedRoute: ActivatedRoute, private _ToastrService: ToastrService) {
     this.viewUserId = _ActivatedRoute.snapshot.params['id'];
+    console.log(this.viewUserId)
+
   }
 
   ngOnInit(): void {
-    if (this.viewUserId) {
-
+    if (this.viewUserId > 0) {
+      this.getProjectById(this.viewUserId);
     }
   }
 
 
   projectForm = new (FormGroup)({
-    title: new FormControl(null),
-    description: new FormControl(null)
+    title: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required])
   })
 
 
@@ -39,12 +44,34 @@ export class AddEditProjectComponent implements OnInit {
         console.log(res);
 
       }, error: () => {
+        this._ToastrService.error('error in this process')
 
       }, complete: () => {
-        this._Router.navigate(['/core/dashboard/manager/projects'])
+        this._Router.navigate(['/core/dashboard/manager/projects']);
+        this._ToastrService.success('Operation Accomplished Successfully')
+
       }
     })
   }
 
 
+
+  getProjectById(id: number) {
+    this._ProjectService.getProjectById(id).subscribe({
+      next: (response) => {
+        console.log(response)
+        this.ProjectById = response;
+        console.log(this.ProjectById)
+      }, error: (error) => {
+        // this._ToastrService.error('error in edit process')
+      }, complete: () => {
+        this.projectForm.patchValue({
+          title: this.ProjectById.title,
+          description: this.ProjectById.description
+        });
+        // this._ToastrService.success('edit process success')
+
+      }
+    })
+  }
 }
