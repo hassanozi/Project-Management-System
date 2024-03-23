@@ -10,6 +10,8 @@ import { TasksService } from '../services/tasks.service';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
+
+
   taskTable: any;
   tasks: any[] = [];
 
@@ -18,10 +20,9 @@ export class TasksComponent {
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
   pageEvent?: PageEvent;
-
   searchkey: string = '';
 
-  constructor(private _TasksService:TasksService, private dialog: MatDialog, private _ToastrService: ToastrService) { }
+  constructor(private _TasksService: TasksService, private dialog: MatDialog, private _ToastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllTasks()
@@ -29,7 +30,6 @@ export class TasksComponent {
 
   handlePageEvent(e: PageEvent) {
     console.log(e);
-
     this.pageEvent = e;
     this.length = e.length;
     this.pageSize = e.pageSize;
@@ -80,4 +80,5 @@ export class TasksComponent {
       }
     })
   }
+
 }
