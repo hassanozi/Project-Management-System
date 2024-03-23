@@ -12,7 +12,9 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./manager-users.component.scss']
 })
 export class ManagerUsersComponent implements OnInit{
+  
   tableResponse:any;
+  searchText: string = '';
   userTable:any;
   users :any[]=[];
   length = 50;
