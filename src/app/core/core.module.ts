@@ -6,7 +6,11 @@ import { CoreComponent } from './core.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './Components/register/register.component';
+
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+
+import { VerifyComponent } from './Components/verify/verify.component';
+
 
 
 
@@ -16,7 +20,11 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     CoreComponent,
     LoginComponent,
     RegisterComponent,
+
     ChangePasswordComponent,
+
+    VerifyComponent,
+
 
   ],
   imports: [

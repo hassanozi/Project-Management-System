@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from '../../../core/Modules/dashboard/service/current-user.service';
 import { Router } from '@angular/router';
+
 import { CoreService } from 'src/app/core/services/core.service';
 import { ChangePasswordComponent } from 'src/app/core/Components/change-password/change-password.component';
 import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +27,12 @@ export class NavbarComponent implements OnInit {
   notFoundRecipes: string = '../../../../assets/images/avatar.png';
   message: string = '';
 
+
   constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService, private _MatDialog: MatDialog) { }
+
+
+ 
+
 
   ngOnInit(): void {
     this.getUserInfo();
@@ -49,6 +56,7 @@ export class NavbarComponent implements OnInit {
       }
     })
   }
+
 
 
   myLogout() {
@@ -81,6 +89,7 @@ export class NavbarComponent implements OnInit {
   //     this.animal = result;
   //   });
   // }
+
 
 }
 

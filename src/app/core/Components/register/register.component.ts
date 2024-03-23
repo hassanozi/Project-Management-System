@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CoreService } from '../../services/core.service';
 import { RegxPassword } from '../login/login.component';
+import { VerifyComponent } from '../verify/verify.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +16,10 @@ export class RegisterComponent {
 
   message: string = '';
   files: File[] = [];
-  hide = true;
+  hidePass = true;
+  hideConfirmPass = true;
   profileImgValue: any
-  constructor(private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) { }
+  constructor(public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) { }
 
   registerForm = new FormGroup({
     userName: new FormControl(null, [Validators.required]),
@@ -51,7 +54,7 @@ export class RegisterComponent {
         console.log(error);
 
       }, complete: () => {
-        this._Router.navigate(['/core/dashboard'])
+        this._Router.navigate(['/core/verify'])
       },
     })
   }
@@ -72,5 +75,32 @@ export class RegisterComponent {
   }
 
 
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VerifyComponent, {
+      height: '400px',
+      width: '600px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!result) return
+
+      if (Object.keys(result).length === 0) return
+
+      this._CoreService.verify(result).subscribe({
+        next: (response) => {
+          this._ToastrService.success(response.message);
+        }, error: (error) => {
+          this._ToastrService.error(error.error.message, 'Error ! ');
+          console.log(error);
+        },
+      })
+
+
+    });
+  }
 
 }

@@ -45,11 +45,8 @@ export class CoreService {
   }
 
 
-  // onLogOut() {
-  //   localStorage.removeItem('userRole');
-  //   localStorage.removeItem('userName');
-  //   localStorage.removeItem('userToken');
-  // }
+  verify(data: FormGroup): Observable<any> {
+    return this._HttpClient.put('Users/verify', data)
 
   onLogOut() {
     localStorage.removeItem('userToken');
@@ -58,12 +55,10 @@ export class CoreService {
     this._Router.navigate(['/core/login'])
   }
 
-  // onChangePassword(data: any): Observable<any> {
-  //   console.log(data);
-  //   return this._HttpClient.put('Users/ChangePassword', data);
-  // }
+
   onChangePassword(data: any): Observable<any> {
     return this._HttpClient.put('Users/ChangePassword', data);
+
   }
 
 }
