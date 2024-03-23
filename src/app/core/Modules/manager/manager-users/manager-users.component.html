@@ -5,7 +5,8 @@
     </div>
     <div class="table-container mt-5 mx-5">
         <div class="w-25 px-3">
-            <input type="text" placeholder="Search By Title" class="form-control" [(ngModel)]="searchText">
+          <input type="text" placeholder="Search By Title" class="form-control" [(ngModel)]="searchKey"  (keyup.enter)="getAllUsers()"
+  >
         </div>
         <table class="table table-striped my-3">
             <thead>

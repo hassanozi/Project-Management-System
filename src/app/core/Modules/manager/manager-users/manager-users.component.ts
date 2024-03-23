@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { ConfirmBlockUserComponent } from './components/confirm-block-user/confirm-block-user.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,6 +15,7 @@ export class ManagerUsersComponent implements OnInit{
   
   tableResponse:any;
   searchText: string = '';
+  filteredItems: any[] = [];
   userTable:any;
   users :any[]=[];
   length = 50;
@@ -22,6 +23,9 @@ export class ManagerUsersComponent implements OnInit{
   pageIndex = 1;
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent |any;
+  searchKey:string='';
+  searchKeyEmail:string='';
+
 
 
   constructor(private _UsersService:UsersService,private dialog:MatDialog, private _ToastrService:ToastrService){}
@@ -36,10 +40,13 @@ export class ManagerUsersComponent implements OnInit{
     this.getAllUsers();
   }
 
+  
+
   getAllUsers(){
     let paramData = {
       pageSize:this.pageSize,
       pageNumber:this.pageIndex,
+      userName:this.searchKey,
 
     }
     this._UsersService.getUsers(paramData).subscribe({

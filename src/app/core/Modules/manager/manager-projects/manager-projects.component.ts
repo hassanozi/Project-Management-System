@@ -40,30 +40,30 @@ export class ManagerProjectsComponent implements OnInit {
   }
 
 
-  deleteProject(projectId: any) {
+  deleteProject(projectId:any){
     this._ProjectService.onDeleteProject(projectId).subscribe({
-      next: (res) => {
+      next:(res) => {
         console.log(res);
-      }, error: () => {
+      },error:()=>{
 
-      }, complete: () => {
-        this.getAllProjects();
-        this._ToastrService.info('Deleted Successfuly')
+      },complete:()=> {
+          this.getAllProjects();
+          this._ToastrService.info('Deleted Successfuly')
       },
     })
   }
-  openDeleteProjectDialog(projectData: any) {
+  openDeleteProjectDialog(projectData:any){
     console.log(projectData)
     const dialogRef = this.dialog.open(DeleteProjectComponent, {
-      data: projectData
+      data:projectData
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      if (result) {
+      if(result){
         this.deleteProject(result);
-
+        
       }
     });
   }
