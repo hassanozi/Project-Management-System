@@ -45,14 +45,13 @@ export class SidebarComponent {
       text: 'Projects',
       link: '/core/dashboard/manager/projects',
       // <i class="fa-solid fa-users-rectangle"></i>
-      icone: 'fa-solid fa-users-rectangle',
+      icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
     },
     {
       text: 'Tasks',
-
       link: '/core/dashboard/manager/tasks',
-      icone: 'fa-solid fa-layer-group',
+      icone: 'fa-solid fa-list-check',
       isActive: this.isAdmin(),
     },
     {

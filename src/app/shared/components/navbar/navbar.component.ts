@@ -3,6 +3,8 @@ import { CurrentUserService } from '../../../core/Modules/dashboard/service/curr
 import { Router } from '@angular/router';
 
 import { CoreService } from 'src/app/core/services/core.service';
+import { ChangePasswordComponent } from 'src/app/core/Components/change-password/change-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -26,7 +28,10 @@ export class NavbarComponent implements OnInit {
   message: string = '';
 
 
-  constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService) { }
+  constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService, private _MatDialog: MatDialog) { }
+
+
+ 
 
 
   ngOnInit(): void {
@@ -59,7 +64,31 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  openChangePasswordDialog(): void {
+    const dialogRef = this._MatDialog.open(ChangePasswordComponent, {
+      data: { name: '' },
+    });
 
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed', result);
+      console.log(result)
+      // if (result != undefined) {
+      // this.ChangePassword(result)
+      // }
+    });
+  }
+
+
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  //     data: { name: this.name, animal: this.animal },
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.animal = result;
+  //   });
+  // }
 
 
 }
