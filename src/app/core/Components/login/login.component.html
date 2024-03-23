@@ -17,7 +17,7 @@
                 <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
               <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
-                class="text-red m-0 mx-auto p-0  alert alert-light text-center w-50 text-danger mb-4" role="alert">
+                class="text-red m-0 mx-auto p-0 alert alert-light text-center w-50 text-danger mb-4" role="alert">
                 <span class="text-red" *ngIf="loginForm.get('email')?.getError('required')">email is Required</span>
                 <br>
                 <span class="text-red" *ngIf="loginForm.get('email')?.getError('email')">email isn't Validator</span>

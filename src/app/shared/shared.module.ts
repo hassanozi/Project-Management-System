@@ -35,7 +35,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     FormsModule,
     NgxDropzoneModule,
 
-
   ],
   exports: [
     CommonModule,
