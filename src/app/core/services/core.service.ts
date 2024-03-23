@@ -20,6 +20,10 @@ export class CoreService {
     }
   }
 
+  onChangePassword(data:any):Observable<any>{
+    return this._HttpClient.put("Users/Login",{data})
+  }
+
   getProfile() {
     let encoded: any = localStorage.getItem('userToken');
     let decode: any = jwtDecode(encoded);

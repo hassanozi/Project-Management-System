@@ -20,6 +20,7 @@ export class ManagerUsersComponent implements OnInit{
   pageIndex = 1;
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent |any;
+  searchKey:string=''
 
 
   constructor(private _UsersService:UsersService,private dialog:MatDialog, private _ToastrService:ToastrService){}
@@ -38,6 +39,7 @@ export class ManagerUsersComponent implements OnInit{
     let paramData = {
       pageSize:this.pageSize,
       pageNumber:this.pageIndex,
+      userName:this.searchKey
 
     }
     this._UsersService.getUsers(paramData).subscribe({

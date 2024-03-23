@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.getUserInfo();
   }
+  openChangePasswordDialog(){}
 
   getUserInfo() {
     this._CurrentUserService.currentUser().subscribe({

@@ -14,6 +14,7 @@ export class ManagerProjectsComponent implements OnInit {
 
   tableResponse: any;
   tableData: any[] = [];
+  searchKey:string=''
 
   length = 50;
   pageSize = 10;
@@ -72,7 +73,7 @@ export class ManagerProjectsComponent implements OnInit {
     let paramData = {
       pageSize: this.pageSize,
       pageNumber: this.pageIndex,
-      title: this.searchkey
+      title: this.searchKey
     }
     this._ProjectService.getAllProjects(paramData).subscribe({
       next: (res) => {

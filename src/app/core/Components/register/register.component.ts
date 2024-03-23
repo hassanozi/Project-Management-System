@@ -18,8 +18,7 @@ export class RegisterComponent {
   files: File[] = [];
   hidePass = true;
   hideConfirmPass = true;
-  profileImgValue: any;
-  hide?:boolean;
+  profileImgValue: any
   constructor(public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) { }
 
   registerForm = new FormGroup({
@@ -55,7 +54,7 @@ export class RegisterComponent {
         console.log(error);
 
       }, complete: () => {
-        this._Router.navigate(['/core/verify'])
+        this.openDialog()
       },
     })
   }
