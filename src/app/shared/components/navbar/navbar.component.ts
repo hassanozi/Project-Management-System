@@ -56,10 +56,8 @@ export class NavbarComponent implements OnInit {
 
   myLogout() {
     this._CoreService.onLogOut();
+    this._Router.navigate(['core/login'])
   }
-
-
-
 
 
 }
