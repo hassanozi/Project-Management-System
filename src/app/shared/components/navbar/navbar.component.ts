@@ -61,35 +61,8 @@ export class NavbarComponent implements OnInit {
 
   myLogout() {
     this._CoreService.onLogOut();
+    this._Router.navigate(['core/login'])
   }
-
-
-  openChangePasswordDialog(): void {
-    const dialogRef = this._MatDialog.open(ChangePasswordComponent, {
-      data: { name: '' },
-    });
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed', result);
-      console.log(result)
-      // if (result != undefined) {
-      // this.ChangePassword(result)
-      // }
-    });
-  }
-
-
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-  //     data: { name: this.name, animal: this.animal },
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   });
-  // }
-
 
 }
 
