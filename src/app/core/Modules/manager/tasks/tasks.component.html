@@ -38,7 +38,7 @@
                   <mat-icon color="primary">edit_square</mat-icon>
                   <span>Edit</span>
                 </button>
-                <button mat-menu-item >
+                <button mat-menu-item (click)="openDeleteTaskDialog(item)">
                   <mat-icon color="primary">delete</mat-icon>
                   <span>Delete</span>
                 </button>

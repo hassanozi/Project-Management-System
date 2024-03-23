@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./view-user.component.scss']
 })
 export class ViewUserComponent {
-  imagePath: string= 'https://upskilling-egypt.com/';
+  imagePath: string= 'https://upskilling-egypt.com:3003/';
   dummyImage:string='../../../../../../../assets/images/profile.png'
   constructor(
     public dialogRef: MatDialogRef<ViewUserComponent>,

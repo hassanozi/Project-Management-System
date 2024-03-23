@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
 import { TasksService } from '../services/tasks.service';
+import { DeleteTaskComponent } from './components/delete-task/delete-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -38,33 +39,33 @@ export class TasksComponent {
   }
 
 
-  // deleteProject(projectId: any) {
-  //   this._ProjectService.onDeleteProject(projectId).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: () => {
+  deleteTask(taskId: any) {
+    this._TasksService.onDeleteTask(taskId).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: () => {
 
-  //     }, complete: () => {
-  //       this.getAllProjects();
-  //       this._ToastrService.info('Deleted Successfuly')
-  //     },
-  //   })
-  // }
-  // openDeleteProjectDialog(projectData: any) {
-  //   console.log(projectData)
-  //   const dialogRef = this.dialog.open(DeleteProjectComponent, {
-  //     data: projectData
-  //   });
+      }, complete: () => {
+        this.getAllTasks();
+        this._ToastrService.info('Deleted Successfuly')
+      },
+    })
+  }
+  openDeleteTaskDialog(TaskData: any) {
+    console.log(TaskData)
+    const dialogRef = this.dialog.open(DeleteTaskComponent, {
+      data: TaskData
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(result)
-  //     if (result) {
-  //       this.deleteProject(result);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      if (result) {
+        this.deleteTask(result);
 
-  //     }
-  //   });
-  // }
+      }
+    });
+  }
 
   getAllTasks() {
     let paramData = {
