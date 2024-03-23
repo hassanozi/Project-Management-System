@@ -6,6 +6,7 @@ import { CoreComponent } from './core.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './Components/register/register.component';
+import { VerifyComponent } from './Components/verify/verify.component';
 
 
 
@@ -15,6 +16,7 @@ import { RegisterComponent } from './Components/register/register.component';
     CoreComponent,
     LoginComponent,
     RegisterComponent,
+    VerifyComponent,
 
   ],
   imports: [
