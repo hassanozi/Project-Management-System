@@ -3,6 +3,8 @@ import { CurrentUserService } from '../../../core/Modules/dashboard/service/curr
 import { Router } from '@angular/router';
 
 import { CoreService } from 'src/app/core/services/core.service';
+import { ChangePasswordComponent } from 'src/app/core/Components/change-password/change-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -26,7 +28,10 @@ export class NavbarComponent implements OnInit {
   message: string = '';
 
 
-  constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService) { }
+  constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService, private _MatDialog: MatDialog) { }
+
+
+ 
 
 
   ngOnInit(): void {
@@ -58,7 +63,6 @@ export class NavbarComponent implements OnInit {
     this._CoreService.onLogOut();
     this._Router.navigate(['core/login'])
   }
-
 
 }
 

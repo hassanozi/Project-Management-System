@@ -47,7 +47,6 @@ export class CoreService {
 
   verify(data: FormGroup): Observable<any> {
     return this._HttpClient.put('Users/verify', data)
-
   }
 
   onLogOut() {

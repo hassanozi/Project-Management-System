@@ -18,7 +18,8 @@ export class RegisterComponent {
   files: File[] = [];
   hidePass = true;
   hideConfirmPass = true;
-  profileImgValue: any
+  profileImgValue: any;
+  hide?:boolean;
   constructor(public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) { }
 
   registerForm = new FormGroup({
