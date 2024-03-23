@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class CoreService {
 
 
 
-  constructor(private _HttpClient: HttpClient) {
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
     if (localStorage.getItem('userToken') !== null) {
       this.getProfile();
     }
@@ -43,8 +44,21 @@ export class CoreService {
     return this._HttpClient.post('Users/Register', data)
   }
 
+
   verify(data: FormGroup): Observable<any> {
     return this._HttpClient.put('Users/verify', data)
+
+  onLogOut() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userName');
+    this._Router.navigate(['/core/login'])
+  }
+
+
+  onChangePassword(data: any): Observable<any> {
+    return this._HttpClient.put('Users/ChangePassword', data);
+
   }
 
 }

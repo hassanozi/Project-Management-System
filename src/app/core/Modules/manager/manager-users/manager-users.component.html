@@ -28,7 +28,7 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #menu="matMenu">
-                        <button mat-menu-item  >
+                        <button mat-menu-item  (click)="openUserDetailes(item)">
                           <mat-icon >visibility</mat-icon>
                           <span>View</span>
                         </button>
@@ -42,6 +42,23 @@
                 
             </tbody>
         </table>
+        <mat-paginator
+             [length]="tableResponse?.totalNumberOfRecords"
+              [pageSize]="tableResponse?.pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              [pageIndex]="tableResponse?.pageNumber"
+              (page)="handlePageEvent($event)"
+              aria-label="Select page">
+        </mat-paginator>
+        
+
     </div>
+    <div *ngIf="users.length==0">
+
+        <div class=" text-center">
+          <img src="../../../../../assets/images/delete-img.svg" alt="">
+          <h5>Not Found</h5>
+        </div>
+      </div>
 
 </section>
