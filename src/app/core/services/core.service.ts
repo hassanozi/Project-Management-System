@@ -20,8 +20,8 @@ export class CoreService {
     }
   }
 
-  onChangePassword(data:any):Observable<any>{
-    return this._HttpClient.put("Users/Login",{data})
+  onChangePassword(data: any): Observable<any> {
+    return this._HttpClient.put('Users/ChangePassword', data)
   }
 
   getProfile() {

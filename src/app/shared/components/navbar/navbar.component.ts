@@ -31,13 +31,12 @@ export class NavbarComponent implements OnInit {
   constructor(private _CurrentUserService: CurrentUserService, private _Router: Router, private _CoreService: CoreService, private _MatDialog: MatDialog) { }
 
 
- 
+
 
 
   ngOnInit(): void {
     this.getUserInfo();
   }
-  openChangePasswordDialog(){}
 
   getUserInfo() {
     this._CurrentUserService.currentUser().subscribe({
@@ -58,11 +57,21 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-
-
   myLogout() {
     this._CoreService.onLogOut();
     this._Router.navigate(['core/login'])
+  }
+
+
+  openChangePasswordDialog(): void {
+    const dialogRef = this._MatDialog.open(ChangePasswordComponent, {
+      data: { name: '' },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed', result);
+      console.log(result)
+    });
   }
 
 }
