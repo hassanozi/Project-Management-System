@@ -13,12 +13,13 @@ import { DeleteTaskComponent } from './components/delete-task/delete-task.compon
 export class TasksComponent {
   taskTable: any;
   tasks: any[] = [];
-
+  statusId:string=''
   length = 50;
   pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
   pageEvent?: PageEvent;
+  uniqueStatuses: string[] = [];
 
   searchkey: string = '';
 
@@ -66,18 +67,22 @@ export class TasksComponent {
       }
     });
   }
+ 
 
   getAllTasks() {
+    
     let paramData = {
       pageSize: this.pageSize,
       pageNumber: this.pageIndex,
-      title: this.searchkey
+      title: this.searchkey,
+      status:this.statusId
     }
     this._TasksService.getManagerTasks(paramData).subscribe({
       next: (res) => {
         console.log(res);
         this.taskTable = res;
         this.tasks = res.data;
+        this.uniqueStatuses = Array.from(new Set(this.tasks.map(item => item.status)));
       }
     })
   }
