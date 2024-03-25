@@ -19,10 +19,15 @@
         <mat-icon color="primary">expand_more</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="/core/dashboard/profile">
           <mat-icon color="primary">account_circle</mat-icon>
           <span>Profile</span>
         </button>
+        <button mat-menu-item routerLink="/core/dashboard/profile/edit">
+          <mat-icon color="primary">account_circle</mat-icon>
+          <span>Update Profile</span>
+        </button>
+
         <button mat-menu-item (click)="openChangePasswordDialog()">
           <mat-icon color="primary">lock_reset</mat-icon>
           <span>Change Password</span>

@@ -11,6 +11,7 @@ const routes: Routes = [{
     { path: 'home', component: HomeComponent, title: 'home' },
     { path: 'manager', canActivate: [adminGuard], loadChildren: () => import('../manager/manager.module').then(m => m.ManagerModule) },
     { path: 'employee', canActivate: [userGuard], loadChildren: () => import('../employee/employee.module').then(m => m.EmployeeModule) },
+    { path: 'profile', loadChildren: () => import('../profile/profile.module').then(m => m.ProfileModule) },
   ]
 },
 

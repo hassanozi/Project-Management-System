@@ -5,6 +5,7 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'core', pathMatch: 'full' },
   { path: 'core', loadChildren: () => import('./core/core.module').then(m => m.CoreModule) },
+
 ];
 
 @NgModule({
