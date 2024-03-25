@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
+import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -36,8 +36,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
+
     MatAutocompleteModule,
     MatSelectModule
+
   ],
   exports: [
     CommonModule,
@@ -56,8 +58,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
+
     MatAutocompleteModule,
     MatSelectModule
+
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

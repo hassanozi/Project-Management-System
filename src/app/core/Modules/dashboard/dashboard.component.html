@@ -1,11 +1,11 @@
 <section>
   <div class=" container-fluid ">
     <app-navbar class=""></app-navbar>
-    <div class="row">
-      <div class="col-2 px-0">
+    <div class="row opened">
+      <div [class]="sidebar?.isOpened?'col-2':'col-1'" class="px-0">
         <app-sidebar></app-sidebar>
       </div>
-      <div class="col-10 px-0">
+      <div [class]="sidebar?.isOpened?'col-10 ':'col-11 '" class="px-4">
         <router-outlet></router-outlet>
       </div>
     </div>

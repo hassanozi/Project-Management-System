@@ -20,8 +20,8 @@ export class CoreService {
     }
   }
 
-  onChangePassword(data:any):Observable<any>{
-    return this._HttpClient.put("Users/Login",{data})
+  onChangePassword(data: any): Observable<any> {
+    return this._HttpClient.put('Users/ChangePassword', data)
   }
 
   getProfile() {
@@ -51,6 +51,9 @@ export class CoreService {
 
   verify(data: FormGroup): Observable<any> {
     return this._HttpClient.put('Users/verify', data)
+  }
+  onForgotPassword(data: FormGroup): Observable<any> {
+    return this._HttpClient.post('Users/Reset/Request' , data)
   }
 
   onLogOut() {

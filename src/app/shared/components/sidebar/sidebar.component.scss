@@ -17,7 +17,7 @@ div {
       list-style: none;
       a {
           padding: 15px;
-          width: 80%;
+          width: 64%;
           color:rgba(255, 255, 255,.6);
           text-decoration: none;
           display: block;
@@ -46,4 +46,17 @@ div {
   position: sticky;
   top: 0;
   z-index: 99;
+}
+
+.arrows {
+  background-color:#ef9b28;
+  position: absolute;
+  right: -33px;
+  top: 25px;
+  width: fit-content;
+  cursor: pointer;
+  i {
+    width: 25px;
+    font-weight: 900;
+  }
 }

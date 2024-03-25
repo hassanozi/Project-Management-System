@@ -16,6 +16,8 @@ interface Menu {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  isOpened: boolean = true;
+
 
   notFoundRecipes: string = '../../../../assets/images/avatar.png';
 
