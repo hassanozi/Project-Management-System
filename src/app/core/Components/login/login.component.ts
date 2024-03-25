@@ -3,8 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CoreService } from '../../services/core.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+
 import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
 
@@ -46,6 +47,7 @@ export class LoginComponent {
     })
   }
 
+
   openDialog(): void {
     const dialogRef = this.dialog.open(ForgotPasswordComponent, {
       width: '600px',
@@ -68,7 +70,7 @@ export class LoginComponent {
           console.log(error);
         },complete:()=>{
           this._ToastrService.success('Email Reset Successfully','Success');
-          this._Router.navigateByUrl("/core/resetPassword");
+          this._Router.navigate(["/core/resetPassword"]);
         
         
       }
@@ -78,4 +80,5 @@ export class LoginComponent {
 
     });
   }
+
 }

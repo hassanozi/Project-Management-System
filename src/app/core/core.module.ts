@@ -10,8 +10,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 import { VerifyComponent } from './Components/verify/verify.component';
-import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 
 
 
