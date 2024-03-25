@@ -14,16 +14,28 @@ export class TasksService {
     return this._HttpClient.get('Task/manager', { params: param })
   }
 
-  // onAddProject(data: FormGroup): Observable<any> {
-  //   return this._HttpClient.post('Project', data)
-  // }
+  onAddTask(data: FormGroup): Observable<any> {
+    return this._HttpClient.post('Task', data)
+  }
+
+  onEditTask(id:number,data: FormGroup): Observable<any> {
+    return this._HttpClient.put(`Task/${id}`,data);
+  }
 
   onDeleteTask(id: number): Observable<any> {
     return this._HttpClient.delete(`Task/${id}`)
   }
 
-  // getProjectById(id: number): Observable<any> {
-  //   return this._HttpClient.get(`Project/${id}`)
-  // }
+  getTaskById(id: number): Observable<any> {
+    return this._HttpClient.get(`Task/${id}`)
+  }
+
+  getAllManagers(param: any): Observable<any> {
+    return this._HttpClient.get('Users/Manager', { params: param })
+  }
+
+  getAllEmployees(param: any): Observable<any> {
+    return this._HttpClient.get('Users', { params: param })
+  }
 
 }
