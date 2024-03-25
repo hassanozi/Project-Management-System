@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
-    MatSelectModule,
+
+    MatAutocompleteModule,
+    MatSelectModule
 
   ],
   exports: [
@@ -54,7 +58,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
-    MatSelectModule,
+
+    MatAutocompleteModule,
+    MatSelectModule
+
   ],
 
   declarations: [SharedComponent, SidebarComponent, NavbarComponent]

@@ -26,4 +26,9 @@ export class ProjectService {
     return this._HttpClient.get(`Project/${id}`)
   }
 
+  getManagerProjects(): Observable<any> {
+    return this._HttpClient.get('Project/manager', { params: {pageSize:1000,PageNumber:1} })
+  }
+
+
 }
