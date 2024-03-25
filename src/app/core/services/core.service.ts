@@ -55,6 +55,11 @@ export class CoreService {
   onForgotPassword(data: FormGroup): Observable<any> {
     return this._HttpClient.post('Users/Reset/Request' , data)
   }
+  
+  onResetPassword(data: FormGroup): Observable<any> {
+    return this._HttpClient.post('Users/Reset' , data)
+  }
+
 
   onLogOut() {
     localStorage.clear()
