@@ -55,8 +55,10 @@ div {
   top: 25px;
   width: fit-content;
   cursor: pointer;
+  border-radius: 0px 70px 70px 0px;
   i {
     width: 25px;
+    color: #fff;
     font-weight: 900;
   }
 }

@@ -5,7 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    ChartModule,
   ]
 })
 export class DashboardModule { }
