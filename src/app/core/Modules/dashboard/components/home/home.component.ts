@@ -37,23 +37,35 @@ export class HomeComponent implements OnInit {
   // activatedEmployee: number = this.userCounter.activatedEmployeeCount;
   // NotActivatedEmployee: number = this.userCounter.deactivatedEmployeeCount;
   // allEmployee: number = this.userCounter.activatedEmployeeCount + this.userCounter.deactivatedEmployeeCount;
-  activatedEmployee: any;
-  NotActivatedEmployee: any;
-  allEmployee: any;
+  activatedEmployee: number = 0;
+  NotActivatedEmployee: number = 0;
+  allEmployee: number = 0;
+  rols: any = `${localStorage.getItem('userRole')}`;
+  allTasks: number = 0;
+  toDoTasks: number = 0;
+  inProgressTasks: number = 0;
+  doneTasks: number = 0;
   constructor(private _CurrentUserService: CurrentUserService, private _TasksService: TasksService, private _UsersService: UsersService) { }
 
   ngOnInit(): void {
     this.showChartsData();
     this.getUserInfo();
     this.userCount();
-    this.allDataInfo();
+    // this.allDataInfo();
+    setTimeout(() => {
+      this.allDataInfo();
+    }, 1000);
   }
 
   showChartsData() {
     this._TasksService.getTasksCount().subscribe({
       next: (response) => {
         console.log(response);
-        this.tasksCounter = response; // Assign response to tasksCounter
+        this.tasksCounter = response;
+        this.allTasks = response.toDo + response.inProgress + response.done;
+        this.toDoTasks = response.toDo;
+        this.inProgressTasks = response.inProgress;
+        this.doneTasks = response.done;
       },
       error: (err) => {
         console.log(err);
@@ -153,22 +165,35 @@ export class HomeComponent implements OnInit {
     this.allDataNewChart = new Chart('allData', {
       type: 'radar',
       data: {
-        labels: ['activated Employee', 'No activated Employee', 'All Employee'],
+        labels: ['activated Employee', 'No activated Employee', 'All Employee', 'All Tasks', 'toDo Tasks', 'inProgress Tasks', 'done Tasks'],
         datasets: [{
           label: 'Employee statuse',
           data: [this.activatedEmployee,
           this.NotActivatedEmployee,
-          this.allEmployee],
+          this.allEmployee, 0, 0, 0, 0],
           fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: '#ef9c2853',
+          borderColor: '#ef9b28',
+          pointBackgroundColor: '#ef9b28',
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)'
-        }]
+          pointHoverBorderColor: '#ef9b28'
+        },
+        {
+          label: 'Tasks statuse',
+          data: [0, 0, 0, this.allTasks, this.toDoTasks, this.inProgressTasks, this.doneTasks],
+          fill: true,
+          backgroundColor: '#0e382653',
+          borderColor: '#0e3826',
+          pointBackgroundColor: '#0e3826',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#0e3826'
+        }
+        ]
       },
     });
   }
+  // console.log();
 
 }
