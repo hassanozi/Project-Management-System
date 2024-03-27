@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -6,6 +6,9 @@ import { CoreService } from '../../services/core.service';
 import { RegxPassword } from '../login/login.component';
 import { VerifyComponent } from '../verify/verify.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HelperService, RegxPhoneNumber, RegxUserName, confirmPasswordValidator } from 'src/app/shared/helper.service';
+
+
 
 @Component({
   selector: 'app-register',
@@ -14,22 +17,30 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class RegisterComponent {
 
+
   message: string = '';
   files: File[] = [];
   hidePass = true;
   hideConfirmPass = true;
   profileImgValue: any
-  constructor(public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) { }
+
+
+  constructor(private _helper: HelperService, public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) {
+
+  }
+
+
 
   registerForm = new FormGroup({
-    userName: new FormControl(null, [Validators.required]),
+    userName: new FormControl(null, [Validators.required, Validators.pattern(RegxUserName), Validators.minLength(4)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     country: new FormControl(null, [Validators.required]),
-    phoneNumber: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)]),
-    confirmPassword: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)]),
+    phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(RegxPhoneNumber)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(6)]),
+    confirmPassword: new FormControl(null, [Validators.required, confirmPasswordValidator]),
 
   })
+
 
 
   onRegister(data: FormGroup) {
@@ -59,8 +70,6 @@ export class RegisterComponent {
     })
   }
 
-
-
   onSelect(event: any) {
     console.log(event.addedFiles[0]);
     this.profileImgValue = event.addedFiles[0]
@@ -68,13 +77,9 @@ export class RegisterComponent {
   }
 
   onRemove(event: any) {
-    console.log(event);
-
-    console.log(this.files.indexOf(event));
     this.files.splice(this.files.indexOf(event), 1);
+    this.profileImgValue = false
   }
-
-
 
 
   openDialog(): void {
@@ -95,14 +100,35 @@ export class RegisterComponent {
           this._ToastrService.success(response.message);
         }, error: (error) => {
           this._ToastrService.error(error.error.message, 'Error ! ');
-          console.log(error);
-        },complete:()=>{
-          this._Router.navigate(['/core/login'])
-        }
+        }, complete: () => this._Router.navigate(['/core/login'])
       })
 
 
     });
   }
+
+
+  getErrorMessageforName() {
+    return this._helper.getErrorMessageforName(this.registerForm, 'userName', { name: 'required', pattern: 'pattern' })
+  }
+
+  getErrorMessageforEmail() {
+
+    return this._helper.getErrorMessageforEmail(this.registerForm, 'email', { required: 'required', email: 'email' })
+  }
+
+  getErrorMessageforPasswrod() {
+    return this._helper.getErrorMessageforPasswrod(this.registerForm, 'password', { required: 'required', minlength: 'minlength', maxlength: 'maxlength', pattern: 'pattern' })
+  }
+
+  getErrorMessageForPhoneNumber() {
+    return this._helper.getErrorMessageForPhoneNumber(this.registerForm, 'phoneNumber', { required: 'required', pattern: 'pattern' })
+  }
+
+
+  getErrorMessageForCountry() {
+    return this._helper.getErrorMessageForPhoneNumber(this.registerForm, 'country', 'required')
+  }
+
 
 }

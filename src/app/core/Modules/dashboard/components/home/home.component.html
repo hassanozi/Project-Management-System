@@ -1,10 +1,32 @@
-<section id="home">
+<section>
   <div class="container">
-    <div class="row align-items-center justify-content-between">
+    <div id="home" class="row align-items-center justify-content-between">
       <div class="col-6 text-white">
         <h2 class="my-5"><span>Welcome</span><span class="lead mx-3 text-name">{{userName}} </span></h2>
         <p class="my-5">You can add project and assign tasks to your team</p>
       </div>
+
     </div>
   </div>
+</section>
+
+
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row justify-content-evenly align-items-end">
+      <div class="col-5">
+        <canvas id="canvas">{{chart}}</canvas>
+      </div>
+      <div class="col-5">
+        <canvas id="newCanvas">{{newChart}}</canvas>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <!-- <div class="col-8">
+        <canvas id="allData">{{allDataNewChart}}</canvas>
+      </div> -->
+    </div>
+  </div>
+
 </section>
