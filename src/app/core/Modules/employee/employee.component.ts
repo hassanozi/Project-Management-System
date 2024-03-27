@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from './services/employee.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
+import { DeleteProjectComponent } from '../manager/manager-projects/components/delete-project/delete-project.component';
 
 @Component({
   selector: 'app-employee',
@@ -6,5 +11,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent {
+  
+  
+
 
 }

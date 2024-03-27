@@ -5,8 +5,6 @@ export const userGuard: CanActivateFn = (route, state) => {
   const _Router = inject(Router)
 
   if (localStorage.getItem('userToken') !== null && localStorage.getItem('userRole') == 'Employee') {
-    console.log('Guard T');
-
     return true;
   } else {
     console.log('Guard F');

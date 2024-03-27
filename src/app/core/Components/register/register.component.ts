@@ -100,7 +100,6 @@ export class RegisterComponent {
           this._ToastrService.success(response.message);
         }, error: (error) => {
           this._ToastrService.error(error.error.message, 'Error ! ');
-
         }, complete: () => this._Router.navigate(['/core/login'])
       })
 
