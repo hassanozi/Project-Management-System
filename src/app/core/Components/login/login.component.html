@@ -36,7 +36,9 @@
               <a routerLink="/core/register" class=" text-decoration-none text-white myPointer">Register Now ?</a>
               <a class=" text-decoration-none text-white myPointer" (click)="openDialog()">Forgot Password ?</a>
             </div>
-            <button type="submit" class="main w-100 text-white" [disabled]="loginForm.invalid">Login</button>
+            <button type="submit" class="main w-100 text-white" [disabled]="loginForm.invalid">Login
+              <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span>
+            </button>
           </div>
 
         </div>

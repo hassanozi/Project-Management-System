@@ -141,7 +141,9 @@
                 </div>
               </div>
               <div class="col-md-12 text-center mt-2">
-                <button type="submit" class="main w-25 text-white" [disabled]="registerForm.invalid">Register</button>
+                <button type="submit" class="main w-25 text-white" [disabled]="registerForm.invalid">Register
+                  <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span>
+                </button>
               </div>
             </div>
           </form>
