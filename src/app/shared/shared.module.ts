@@ -15,8 +15,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -35,9 +36,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
-
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
 
   ],
   exports: [
@@ -57,9 +58,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatPaginatorModule,
     FormsModule,
     NgxDropzoneModule,
-
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
 
   ],
 
