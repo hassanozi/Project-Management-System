@@ -6,7 +6,7 @@
       <div class="img-info d-flex justify-content-center align-items-center p-5">
         <div>
           <img class="border_outlet" [src]="userInfo.imagePath ? baseUrl + userInfo.imagePath : defaultImg" alt="">
-          <h3 class="mt-2 text-center ">{{userInfo.userName}}</h3>
+          <h3 class="mt-2 text-center text-muted ">{{userInfo.userName}}</h3>
         </div>
       </div>
     </div>
@@ -15,18 +15,18 @@
         <div class="d-flex justify-content-center  align-items-center">
           <h3 class="text-muted mx-3 ">information</h3>
         </div>
-        <hr>
+
         <div class="d-flex justify-content-between mt-3">
           <div>
             <h3 class="text-muted">email</h3>
             <p>{{userInfo.email}}</p>
           </div>
           <div>
-            <h3 class="text-muted  ">phone</h3>
+            <h3 class="text-muted text-start  ">phone</h3>
             <p>{{userInfo.phoneNumber}}</p>
           </div>
         </div>
-        <hr>
+
         <div class="d-flex justify-content-between">
           <div>
             <h3 class="text-muted ">countery</h3>
