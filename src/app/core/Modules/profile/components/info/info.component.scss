@@ -1,7 +1,7 @@
 @import "../../../../../../assets/styles/abstracts/colors";
-
+@import "../../../../../../assets/styles/layout";
 #info-user {
-  width: 90%;
+  width: 95%;
 
   h3 {
     color: #fff;
@@ -12,11 +12,12 @@
   }
 }
 
-.img-info {
-  background-color: $bg-second;
+.row {
+  box-shadow: 0 1px 2px 0px rgba(239, 155, 40);
+}
 
-  border-radius: 8px;
-  box-shadow: 1px 1px 1px rgba($color: #ffffff, $alpha: 1);
+.img-info {
+  background-color: $bg-main;
   img {
     width: 150px;
     height: 150px;
@@ -31,4 +32,7 @@
   &:hover {
     border: 3px solid $bg-second;
   }
+}
+a {
+  text-decoration: none;
 }

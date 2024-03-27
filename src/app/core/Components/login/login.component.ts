@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { HelperService } from 'src/app/shared/helper.service';
 
 export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
 
@@ -22,7 +23,7 @@ export class LoginComponent {
 
   hide = true;
 
-  constructor(private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router,public dialog: MatDialog,) { }
+  constructor(private _helper: HelperService, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router, public dialog: MatDialog,) { }
 
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -62,23 +63,33 @@ export class LoginComponent {
 
       this._CoreService.onForgotPassword(result).subscribe({
         next: () => {
-          
+
 
 
         }, error: (error) => {
           this._ToastrService.error(error.error.message, 'Error ! ');
           console.log(error);
-        },complete:()=>{
-          this._ToastrService.success('Email Reset Successfully','Success');
+        }, complete: () => {
+          this._ToastrService.success('Email Reset Successfully', 'Success');
           this._Router.navigate(["/core/resetPassword"]);
-        
-        
-      }
-        
+
+
+        }
+
       })
 
 
     });
+  }
+
+
+  getErrorMessageforEmail() {
+
+    return this._helper.getErrorMessageforEmail(this.loginForm, 'email', { required: 'required', email: 'email' })
+  }
+
+  getErrorMessageforPasswrod() {
+    return this._helper.getErrorMessageforPasswrod(this.loginForm, 'password', { required: 'required', minlength: 'minlength', maxlength: 'maxlength', pattern: 'pattern' })
   }
 
 }

@@ -19,7 +19,7 @@ export class EditProfileComponent implements OnInit {
   baseUrl: string = 'https://upskilling-egypt.com:3003/'
   defaultImg = '../../../../../../assets/images/avatar.png'
   files: File[] = [];
-
+  hideConfirmPass = true;
 
   updateProfileForm: FormGroup = new FormGroup({
     userName: new FormControl(null),
@@ -70,7 +70,7 @@ export class EditProfileComponent implements OnInit {
 
         this._ToastrService.success('Your Profile UPdated Now', 'Success')
       },
-      error: (err) => console.log(err),
+      error: (err) => this._ToastrService.error(err.error.message, 'Error ! '),
       complete: () => {
 
         this._Router.navigate(['/core/dashboard'])
@@ -116,10 +116,8 @@ export class EditProfileComponent implements OnInit {
   }
 
   onRemove(event: any) {
-    console.log(event);
-
-    console.log(this.files.indexOf(event));
     this.files.splice(this.files.indexOf(event), 1);
+    this.profileImgValue = false
   }
 
   removeImg(event: any) {

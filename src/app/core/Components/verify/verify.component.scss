@@ -11,3 +11,18 @@ button {
     cursor: not-allowed;
   }
 }
+
+h3 {
+  color: $text-main;
+  position: relative;
+  margin-bottom: 1.5rem;
+  &::after {
+    content: "";
+    width: 13px;
+    height: 4px;
+    background-color: $text-main;
+    position: absolute;
+    top: 100%;
+    left: 1.5px;
+  }
+}
