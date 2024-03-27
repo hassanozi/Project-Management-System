@@ -96,7 +96,9 @@ export class RegisterComponent {
         }, error: (error) => {
           this._ToastrService.error(error.error.message, 'Error ! ');
           console.log(error);
-        },
+        },complete:()=>{
+          this._Router.navigate(['/core/login'])
+        }
       })
 
 

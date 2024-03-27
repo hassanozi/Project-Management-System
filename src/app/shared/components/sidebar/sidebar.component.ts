@@ -63,8 +63,8 @@ export class SidebarComponent {
       isActive: this.isUser(),
     },
     {
-      text: 'Employee Projects',
-      link: '/dashboard/user/user_Recipes',
+      text: 'My Projects',
+      link: '/core/dashboard/employee/user-projects',
       icone: 'fa-solid fa-circle-user',
       isActive: this.isUser(),
     }
