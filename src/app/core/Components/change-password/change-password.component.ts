@@ -45,8 +45,8 @@ export class ChangePasswordComponent {
         this._ToastrService.error(err.error.message, 'Error! ');
       }, complete: () => {
         this._ToastrService.success(this.message, 'Done🤙✅');
+        this.onNoClick();
         this._Router.navigate(['/core/login'])
-
       },
     });
   }
