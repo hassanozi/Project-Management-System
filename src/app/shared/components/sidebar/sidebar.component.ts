@@ -56,14 +56,14 @@ export class SidebarComponent {
       icone: 'fa-solid fa-list-check',
       isActive: this.isAdmin(),
     },
+    // {
+    //   text: 'Projects',
+    //   link: '/core/dashboard/employee/projects',
+    //   icone: 'fa-solid fa-layer-group',
+    //   isActive: this.isUser(),
+    // },
     {
       text: 'Projects',
-      link: '/core/dashboard/employee/projects',
-      icone: 'fa-solid fa-layer-group',
-      isActive: this.isUser(),
-    },
-    {
-      text: 'My Projects',
       link: '/core/dashboard/employee/user-projects',
       icone: 'fa-solid fa-circle-user',
       isActive: this.isUser(),
