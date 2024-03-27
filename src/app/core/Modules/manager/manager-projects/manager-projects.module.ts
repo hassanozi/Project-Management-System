@@ -6,13 +6,15 @@ import { ManagerProjectsComponent } from './manager-projects.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddEditProjectComponent } from './components/add-edit-project/add-edit-project.component';
 import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
 
 
 @NgModule({
   declarations: [
     ManagerProjectsComponent,
     AddEditProjectComponent,
-    DeleteProjectComponent
+    DeleteProjectComponent,
+    ViewProjectComponent
   ],
   imports: [
     CommonModule,
