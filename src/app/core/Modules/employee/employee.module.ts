@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -13,7 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     EmployeeRoutingModule,
-    SharedModule
+    SharedModule,
+    DragDropModule
   ]
 })
 export class EmployeeModule { }

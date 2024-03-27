@@ -1,1 +1,53 @@
-<p>tasks works!</p>
+<section>
+    <div class="title-page shadow px-5">
+
+    </div>
+    <section>      
+        <div cdkDropListGroup>
+            <div class="container-fluid">
+                <div class="row py-5">
+                    <div class="col-4">
+                        <div class="example-container ">
+                            <h2>To do</h2>
+                        
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="todo"
+                              class=" task"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class=" task-item" *ngFor="let item of todo" cdkDrag>{{item.title}}</div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="example-container">
+                            <h2>InProgress</h2>
+                        
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="inprogress"
+                              class="task"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="task-item" *ngFor="let item of inprogress" cdkDrag>{{item.title}}</div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="example-container">
+                            <h2>Done</h2>
+                        
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="done"
+                              class="task"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="task-item" *ngFor="let item of done" cdkDrag>{{item.title}}</div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+               </div>
+        </div>       
+    </section>
+</section>
+

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksComponent } from './tasks.component';
@@ -11,7 +12,8 @@ import { TasksComponent } from './tasks.component';
   ],
   imports: [
     CommonModule,
-    TasksRoutingModule
+    TasksRoutingModule,
+    DragDropModule
   ]
 })
 export class TasksModule { }

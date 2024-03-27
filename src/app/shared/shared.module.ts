@@ -17,7 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -37,7 +37,8 @@ import {MatSelectModule} from '@angular/material/select';
     NgxDropzoneModule,
 
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
 
   ],
   exports: [
@@ -59,7 +60,8 @@ import {MatSelectModule} from '@angular/material/select';
     NgxDropzoneModule,
 
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
 
   ],
 

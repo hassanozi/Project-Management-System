@@ -13,5 +13,9 @@ constructor(private _HttpClient:HttpClient) { }
 getAllProjects(param: any): Observable<any> {
   return this._HttpClient.get('Project/employee', { params: param })
 }
+getAllTasks(param: any): Observable<any> {
+  return this._HttpClient.get('Task', { params: param })
+}
+
 
 }
