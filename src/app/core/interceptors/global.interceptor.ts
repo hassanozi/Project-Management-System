@@ -5,11 +5,12 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, finalize } from "rxjs";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 export class GobalInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
   intercept(
     request: HttpRequest<unknown>,
@@ -32,6 +33,12 @@ export class GobalInterceptor implements HttpInterceptor {
       url: baseUrl + request.url,
     });
 
-    return next.handle(modifiedRequest);
+    this.spinner.show();
+
+    return next.handle(modifiedRequest).pipe(
+      finalize(() => {
+        this.spinner.hide(); 
+      })
+    );;
   }
 }
