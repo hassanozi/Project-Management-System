@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GobalInterceptor } from './core/interceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    DragDropModule
   ],
   providers: [
     {
