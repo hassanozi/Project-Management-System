@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
 import { ToastrService } from 'ngx-toastr';
 import { PageEvent } from '@angular/material/paginator';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
 
 @Component({
   selector: 'app-manager-projects',
@@ -82,5 +83,17 @@ export class ManagerProjectsComponent implements OnInit {
         this.tableData = res.data;
       }
     })
+  }
+
+  openProjectDetailes(item:any){
+    const dialogRef = this.dialog.open(ViewProjectComponent, {
+      data:item
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      
+    });
   }
 }
