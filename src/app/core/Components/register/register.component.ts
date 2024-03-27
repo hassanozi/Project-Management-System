@@ -117,6 +117,11 @@ export class RegisterComponent {
     return this._helper.getErrorMessageforEmail(this.registerForm, 'email', { required: 'required', email: 'email' })
   }
 
+  getErrorMessageForCountry() {
+    return this._helper.getErrorMessageforEmail(this.registerForm, 'country', { required: 'required' })
+  }
+
+
   getErrorMessageforPasswrod() {
     return this._helper.getErrorMessageforPasswrod(this.registerForm, 'password', { required: 'required', minlength: 'minlength', maxlength: 'maxlength', pattern: 'pattern' })
   }
@@ -126,9 +131,9 @@ export class RegisterComponent {
   }
 
 
-  getErrorMessageForCountry() {
-    return this._helper.getErrorMessageForPhoneNumber(this.registerForm, 'country', 'required')
-  }
+  // getErrorMessageForCountry() {
+  //   return this._helper.getErrorMessageForPhoneNumber(this.registerForm, 'country', 'required')
+  // }
 
 
 }
