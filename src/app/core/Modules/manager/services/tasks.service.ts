@@ -14,12 +14,16 @@ export class TasksService {
     return this._HttpClient.get('Task/manager', { params: param })
   }
 
+  getTasksCount(): Observable<any> {
+    return this._HttpClient.get('Task/count')
+  }
+
   onAddTask(data: FormGroup): Observable<any> {
     return this._HttpClient.post('Task', data)
   }
 
-  onEditTask(id:number,data: FormGroup): Observable<any> {
-    return this._HttpClient.put(`Task/${id}`,data);
+  onEditTask(id: number, data: FormGroup): Observable<any> {
+    return this._HttpClient.put(`Task/${id}`, data);
   }
 
   onDeleteTask(id: number): Observable<any> {
