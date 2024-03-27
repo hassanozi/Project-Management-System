@@ -58,18 +58,12 @@ export class SidebarComponent {
     },
     {
       text: 'Projects',
-      link: '/core/dashboard/employee/projects',
+      link: '/core/dashboard/employee/user-projects',
       icone: 'fa-solid fa-layer-group',
       isActive: this.isUser(),
     },
     {
-      text: 'My Projects',
-      link: '/core/dashboard/employee/user-projects',
-      icone: 'fa-solid fa-circle-user',
-      isActive: this.isUser(),
-    },
-
-    {text: 'Tasks',
+      text: 'Tasks',
       link: '/core/dashboard/employee/tasks',
       icone: 'fa-solid fa-list-check',
       isActive: this.isUser(),
