@@ -2,10 +2,10 @@
   <div class=" container-fluid ">
     <app-navbar class=""></app-navbar>
     <div class="row opened">
-      <div [class]="sidebar?.isOpened?'col-2':'col-1'" class="px-0">
+      <div [class]="sidebar?.isOpened?'custom-col-2':'custom-col-1'" class="px-0">
         <app-sidebar></app-sidebar>
       </div>
-      <div [class]="sidebar?.isOpened?'col-10 ':'col-11 '" class="px-0">
+      <div [class]="sidebar?.isOpened?'custom-col-10 ':'custom-col-11 '" class="px-0">
         <router-outlet></router-outlet>
       </div>
     </div>

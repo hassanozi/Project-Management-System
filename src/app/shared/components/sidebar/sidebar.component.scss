@@ -12,12 +12,12 @@ div {
 }
 
   ul {
-    // padding: 0px;
+    padding: 0px 0px 0px 10px;
     li {
       list-style: none;
       a {
-          padding: 15px;
-          width: 64%;
+          padding: 12px;
+          width: 73%;
           color:rgba(255, 255, 255,.6);
           text-decoration: none;
           display: block;
@@ -34,7 +34,9 @@ div {
   .bg-main-transparent {
     background-color: rgba(239, 155, 40, .2);
     color: #ef9b28 !important;
+    padding-right: 4px;
     i {
+
       color: #ef9b28 !important;
     }
   }
