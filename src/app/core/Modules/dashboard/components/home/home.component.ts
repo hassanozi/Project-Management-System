@@ -157,7 +157,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  // fill:any;
+
 
   allDataInfo() {
     console.log(this.allEmployee);
