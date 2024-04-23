@@ -21,7 +21,6 @@ export class ChangePasswordComponent {
   see: boolean = true;
   see_2: boolean = true;
   see_3: boolean = true;
-  isLoading: boolean = false;
   password_type: string = 'text';
   // password_type: string = 'text';
   password_type_2: string = 'text';
@@ -35,7 +34,6 @@ export class ChangePasswordComponent {
   });
 
   handleForm(data: FormGroup): void {
-    this.isLoading = true;
     let userData = data.value;
     this._CoreService.onChangePassword(userData).subscribe({
       next: (response) => {

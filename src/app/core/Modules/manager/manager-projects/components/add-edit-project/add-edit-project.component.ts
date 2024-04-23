@@ -38,20 +38,37 @@ export class AddEditProjectComponent implements OnInit {
 
 
   onSubmit(data: FormGroup) {
-    console.log(data.value);
-    this._ProjectService.onAddProject(data.value).subscribe({
-      next: (res) => {
-        console.log(res);
-
-      }, error: () => {
-        this._ToastrService.error('error in this process')
-
-      }, complete: () => {
-        this._Router.navigate(['/core/dashboard/manager/projects']);
-        this._ToastrService.success('Operation Accomplished Successfully')
-
-      }
-    })
+    if(this.viewUserId){
+      this._ProjectService.onEditProject(this.viewUserId,data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+  
+        }, error: () => {
+          this._ToastrService.error('error in this process')
+  
+        }, complete: () => {
+          this._Router.navigate(['/core/dashboard/manager/projects']);
+          this._ToastrService.success('Operation Accomplished Successfully')
+  
+        }
+      })
+    } else{
+      this._ProjectService.onAddProject(data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+  
+        }, error: () => {
+          this._ToastrService.error('error in this process')
+  
+        }, complete: () => {
+          this._Router.navigate(['/core/dashboard/manager/projects']);
+          this._ToastrService.success('Operation Accomplished Successfully')
+  
+        }
+      })
+      
+    }
+    
   }
 
 

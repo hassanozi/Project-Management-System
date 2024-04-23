@@ -23,7 +23,6 @@ export class RegisterComponent {
   hidePass = true;
   hideConfirmPass = true;
   profileImgValue: any
-  isLoading: boolean = false;
 
 
   constructor(private _helper: HelperService, public dialog: MatDialog, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router) {
@@ -45,7 +44,6 @@ export class RegisterComponent {
 
 
   onRegister(data: FormGroup) {
-    this.isLoading = true;
     let registerFormData = new FormData()
     registerFormData.append('profileImage', this.profileImgValue)
     registerFormData.append('userName', data.value.userName)
@@ -60,17 +58,14 @@ export class RegisterComponent {
     this._CoreService.register(registerFormData).subscribe({
       next: (response) => {
         console.log(response);
-        this.isLoading = false;
 
         this._ToastrService.success(response.message);
       }, error: (error) => {
-        this.isLoading = false;
 
         this._ToastrService.error(error.error.message, 'Error ! ');
         console.log(error);
 
       }, complete: () => {
-        this.isLoading = false;
         this.openDialog()
       },
     })

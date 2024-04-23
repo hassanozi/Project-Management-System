@@ -1,28 +1,24 @@
-<section class="container-fluid py-3 bg-green">
+<section class="container-fluid py-3">
 
     <a class="text-end d-block myPointer my-3" (click)="onNoClick()"><i class="fa-regular fa-2x fa-circle-xmark text-danger"></i></a>
 
-    <div class="text-center ">
+    <div class="text-center">
         <div class="d-flex justify-content-center align-items-center">
-            <h3 class="form-label m-3">Manager Name  :  </h3>
-            <h4>{{data.manager.userName}}</h4>
+            <h3 class="form-label m-3">Manager Name  :  <span class=" fw-lighter">{{data.manager.userName}}</span></h3>
+    
         </div>
-        <hr>
         <div class="d-flex justify-content-center align-items-center">
-            <h3 class="form-label m-3">Project Title  :  </h3>
-            <h4>{{data.title}}</h4>
+            <h3 class="form-label m-3">Project Title  :  <span class=" fw-lighter">{{data.title}}</span></h3>
+
         </div>
-        <hr>
         <div class="d-flex justify-content-center align-items-center">
-            <h3 class="form-label m-3">Project Description  :  </h3>
-            <h4>{{data.description}}</h4>
+            <h3 class="form-label m-3">Project Description  :  <span class=" fw-lighter">{{data.description}}</span></h3>
+
         </div>
-        <hr>
         <div class="d-flex justify-content-center align-items-center">
-            <h3 class="form-label m-3">Creation Date  :  </h3>
-            <h4>{{data.creationDate | date}}</h4>
+            <h3 class="form-label m-3">Creation Date  :  <span class=" fw-lighter">{{data.creationDate | date}}</span></h3>
+
         </div>
-        <hr>
     </div>
     <div class="text-end">
         <button class="btn main text-white w-25" [mat-dialog-close]="data.id">Close</button>
