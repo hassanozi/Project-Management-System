@@ -48,7 +48,7 @@ export class AddEditProjectComponent implements OnInit {
   
         }, complete: () => {
           this._Router.navigate(['/core/dashboard/manager/projects']);
-          this._ToastrService.success('Operation Accomplished Successfully')
+          this._ToastrService.success('Project Updated Successfully')
   
         }
       })
@@ -62,7 +62,7 @@ export class AddEditProjectComponent implements OnInit {
   
         }, complete: () => {
           this._Router.navigate(['/core/dashboard/manager/projects']);
-          this._ToastrService.success('Operation Accomplished Successfully')
+          this._ToastrService.success('Project Added Successfully')
   
         }
       })
