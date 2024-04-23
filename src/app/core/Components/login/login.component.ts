@@ -19,7 +19,7 @@ export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).
 export class LoginComponent {
 
   message: string = '';
-  isLoading: boolean = false;
+  
   hide = true;
 
   constructor(private _helper: HelperService, private _CoreService: CoreService, private _ToastrService: ToastrService, private _Router: Router, public dialog: MatDialog,) {
@@ -33,23 +33,17 @@ export class LoginComponent {
 
 
   onLogin(data: FormGroup) {
-    this.isLoading = true;
-
     console.log(data);
     this._CoreService.login(data.value).subscribe({
       next: (response) => {
-        console.log(response);
-        this.isLoading = false;
 
         this.message = response.message;
         localStorage.setItem('userToken', response.token);
         this._CoreService.getProfile();
       }, error: (error) => {
-        this.isLoading = false;
 
         this._ToastrService.error(error.error.message, 'Error ! ');
       }, complete: () => {
-        this.isLoading = false;
         this._ToastrService.success(`Welcome Again`);
         this._Router.navigate(['/core/dashboard'])
       },

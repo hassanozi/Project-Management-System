@@ -26,6 +26,10 @@ export class ProjectService {
     return this._HttpClient.get(`Project/${id}`)
   }
 
+  onEditProject(id: number, data:any): Observable<any> {
+    return this._HttpClient.put(`Project/${id}`, data)
+  }
+
   getManagerProjects(): Observable<any> {
     return this._HttpClient.get('Project/manager', { params: {pageSize:1000,PageNumber:1} })
   }

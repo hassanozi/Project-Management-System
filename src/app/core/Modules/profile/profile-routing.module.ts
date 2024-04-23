@@ -7,7 +7,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 const routes: Routes = [
   {
     path: '', component: ProfileComponent, children: [
-      { path: '', redirectTo: 'info', pathMatch: 'full' },
+      { path: '', redirectTo: 'edit', pathMatch: 'full' },
       { path: 'info', component: InfoComponent },
       { path: 'edit', component: EditProfileComponent },
     ]
