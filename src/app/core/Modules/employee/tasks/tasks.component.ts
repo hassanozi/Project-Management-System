@@ -34,7 +34,7 @@ export class TasksComponent implements OnInit {
             this.todo.push(task)
           } else if (task.status == 'InProgress') {
             this.inprogress.push(task)
-          } else {
+          } else  if (task.status == 'Done'){
             this.done.push(task)
           }
         }
